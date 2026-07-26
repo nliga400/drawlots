@@ -37,3 +37,27 @@ button:disabled{opacity:.7;cursor:not-allowed}
 .result-label{margin-top:20px;font-size:18px;font-weight:600;color:#234}
 .result{margin-top:10px;font-size:28px;font-weight:bold;color:#0b4f1f;opacity:0;transition:1s;line-height:1.4}
 .result.show{opacity:1}
+
+@media (max-width: 760px) {
+  .container{width:auto;padding:16px}
+  .layout{flex-direction:column;align-items:stretch}
+  .list-panel,.main-panel{min-width:auto}
+  .list-panel{order:2}
+  .main-panel{order:1}
+  .controls select{min-width:auto;width:100%}
+  .draw-result{max-height:none}
+  .scene{height:240px}
+  .bowl{width:220px;height:145px}
+  .hand{font-size:64px;top:-110px}
+  .button,button{width:100%;padding:14px 20px}
+}
+
+@media (max-width: 520px) {
+  body{padding:12px}
+  .container{padding:12px}
+  .controls select{font-size:14px}
+  button{font-size:16px;padding:12px 18px}
+  .result{font-size:24px}
+  .result-label{font-size:16px}
+}
+

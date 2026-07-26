@@ -21,6 +21,35 @@ const drawResultPanel=document.getElementById('drawResultPanel');
 const groupSelect=document.getElementById('groupSelect');
 const sessionSelect=document.getElementById('sessionSelect');
 
+function getActiveSessions(){
+  const sessions=[];
+  for(let i=0;i<localStorage.length;i++){
+    const key=localStorage.key(i);
+    if(key && key.startsWith(storageKeyBase+':')){
+      const sessionName=key.slice(storageKeyBase.length+1);
+      if(!sessions.includes(sessionName)){
+        sessions.push(sessionName);
+      }
+    }
+  }
+  if(!sessions.includes('1st session')){
+    sessions.unshift('1st session');
+  }
+  return sessions.sort((a,b)=>a.localeCompare(b, undefined, {numeric:true, sensitivity:'base'}));
+}
+
+function populateSessionSelect(){
+  if(!sessionSelect){
+    return;
+  }
+  const sessions=getActiveSessions();
+  sessionSelect.innerHTML=sessions.map((name)=>`<option value="${name}">${name}</option>`).join('');
+  if(!sessions.includes(currentSessionId)){
+    currentSessionId=sessions[0] || '1st session';
+  }
+  sessionSelect.value=currentSessionId;
+}
+
 function getStorageKey(){
 return storageKeyBase+':'+currentSessionId;
 }
@@ -130,6 +159,7 @@ renderDrawResults();
 });
 
 const params=new URLSearchParams(window.location.search);
+populateSessionSelect();
 if(params.get('session')){
 applySession(params.get('session'));
 }else{

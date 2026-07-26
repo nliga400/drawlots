@@ -6,7 +6,7 @@ const groupAssignments={
 7:{label:'Group 7',assignment:'Mark'}
 };
 const storageKeyBase='drawlots-state';
-let currentSessionId=new URLSearchParams(window.location.search).get('session') || 'shared';
+let currentSessionId=new URLSearchParams(window.location.search).get('session') || '1st session';
 let remainingSundays=[...sundayAssignments];
 let drawnGroups=[];
 let drawResults={};
@@ -19,6 +19,7 @@ const result=document.getElementById('result');
 const resultLabel=document.getElementById('resultLabel');
 const drawResultPanel=document.getElementById('drawResultPanel');
 const groupSelect=document.getElementById('groupSelect');
+const sessionSelect=document.getElementById('sessionSelect');
 
 function getStorageKey(){
 return storageKeyBase+':'+currentSessionId;
@@ -87,8 +88,11 @@ drawResults={};
 }
 
 function applySession(sessionName){
-currentSessionId=(sessionName||'shared').trim() || 'shared';
+currentSessionId=(sessionName||'1st session').trim() || '1st session';
 history.replaceState({},'',window.location.pathname+'?session='+encodeURIComponent(currentSessionId));
+if(sessionSelect){
+sessionSelect.value=currentSessionId;
+}
 loadState();
 refreshGroupOptions();
 renderDrawResults();
@@ -130,6 +134,10 @@ if(params.get('session')){
 applySession(params.get('session'));
 }else{
 applySession(currentSessionId);
+}
+
+if(sessionSelect){
+sessionSelect.onchange=()=>applySession(sessionSelect.value);
 }
 
 btn.onclick=()=>{

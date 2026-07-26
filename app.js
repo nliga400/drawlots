@@ -1,10 +1,9 @@
 const sundayAssignments=['1st Sunday','2nd Sunday','3rd Sunday','4th Sunday','5th Sunday'];
 const groupAssignments={
-1:{label:'Groups 1 and 4',assignment:'Dong and Mike'},
-2:{label:'Group 2',assignment:'Jude Dapitan'},
-3:{label:'Groups 3 and 5',assignment:'Alpo and Ariel'},
-6:{label:'Group 6',assignment:'Rod Sicat'},
-7:{label:'Group 7',assignment:'Mark Siazon'}
+1:{label:'Groups 1 and 6',assignment:'Dong and Rod'},
+2:{label:'Groups 2 and 3',assignment:'Jude and Alpo'},
+3:{label:'Groups 4 and 5',assignment:'Mike and Ariel'},
+7:{label:'Group 7',assignment:'Mark'}
 };
 const storageKeyBase='drawlots-state';
 let currentSessionId=new URLSearchParams(window.location.search).get('session') || 'shared';

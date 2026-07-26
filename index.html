@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAC G-group Presentation Schedule</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h1>NAC G-group Presentation Schedule</h1>
+<div class="layout">
+<div class="list-panel">
+<div class="subtitle">Draw result</div>
+<div class="draw-result" id="drawResultPanel">No assignment drawn yet.</div>
+</div>
+<div class="main-panel">
+<div class="controls">
+<label for="groupSelect">G-group number</label>
+<select id="groupSelect">
+<option value="">-- Select group --</option>
+<option value="1">Groups 1 and 4</option>
+<option value="2">Group 2</option>
+<option value="3">Groups 3 and 5</option>
+<option value="6">Group 6</option>
+<option value="7">Group 7</option>
+</select>
+</div>
+<div class="scene">
+<div class="hand" id="hand">🤚</div>
+<div class="bowl shuffle-target" id="bowl">
+<div class="paper"></div><div class="paper"></div><div class="paper"></div><div class="paper"></div><div class="paper"></div>
+</div>
+</div>
+<button id="drawBtn">🎲 DRAW WEEK ASSIGNMENT</button>
+<div class="result-label" id="resultLabel">Current G-group</div>
+<div id="result" class="result"></div>
+</div>
+</div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

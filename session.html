@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Administration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<h1>Session Administration</h1>
+<div class="session-panel wide-panel">
+<div class="session-label">Shared session</div>
+<div class="session-controls">
+<input id="sessionInput" type="text" value="shared" placeholder="Enter session name">
+<button id="joinSessionBtn" class="secondary-btn" type="button">Join</button>
+<button id="resetSessionBtn" class="secondary-btn" type="button">Reset</button>
+</div>
+<div class="session-status" id="sessionStatus">Session: shared</div>
+<p class="helper-text">Use this page to join a shared draw session or reset the current session.</p>
+<a class="link-btn" href="index.html">Back to draw page</a>
+</div>
+</div>
+<script src="session.js"></script>
+</body>
+</html>
